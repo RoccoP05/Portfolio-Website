@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!-- Profile Card HTML Template -->
+<html lang="en">
+<head>
+  <!-- Character encoding for the document -->
+  <meta charset="UTF-8">
+  <!-- Viewport settings for responsive design on mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Page title displayed in browser tab -->
+  <title>Rocco's Profile Card</title>
+  <!-- Link to external CSS stylesheet for styling -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <button class="menu-btn" aria-label="Open menu">☰</button>
+
+  <main class="page-content">
+    <div class="card" id="profileCard">
+    <!-- Profile photo -->
+    <img src="img/placeholder.png" alt="Rocco's profile photo" class="profile-photo">
+    <img src="img/cat.png" alt="Cat icon" class="scroll-cat">
+    <!-- Profile name - main heading -->
+    <h1>Rocco Palepoi</h1>
+    <!-- Job title - secondary heading -->
+    <h2>Web Developer</h2>
+    <!-- Brief bio or description -->
+    <p>Excited to create and learn</p>
+
+    <!-- Section heading for links -->
+    <h3>My Favorite Websites</h3>
+    <!-- Bulleted list of links -->
+    <ul>
+      <li><a href="https://github.com">GitHub</a></li>
+      <li><a href="https://stackoverflow.com">Stack Overflow</a></li>
+      <li><a href="https://developer.mozilla.org">MDN Web Docs</a></li>
+      <li><a href="https://www.w3schools.com">W3Schools</a></li>
+    </ul>
+    </div>
+
+    <section class="content">
+      <h3>About this profile</h3>
+      <p>Scroll down to see the profile card transform into a compact display bar at the top of the page.</p>
+      <p>This animation keeps your profile visible and easy to access while browsing additional content.</p>
+      <p>More content here helps demonstrate the transition effect and gives the page enough height to scroll.</p>
+      <p>Scroll further to see the cat image appear in the compact bar as the page blends to a darker gradient.</p>
+      <p>Keep scrolling to give the page enough distance before the profile locks into a top display bar.</p>
+      <p>Enjoy the smooth transition and the new menu button in the top-left corner.</p>
+    </section>
+  </main>
+
+  <script>
+    const profileCard = document.getElementById('profileCard');
+
+    // create spacer to preserve layout when card becomes fixed
+    let spacer = document.getElementById('card-spacer');
+    if (!spacer) {
+      spacer = document.createElement('div');
+      spacer.id = 'card-spacer';
+      spacer.style.height = '0px';
+      profileCard.parentNode.insertBefore(spacer, profileCard);
+    }
+
+    function updateLayoutOnScroll() {
+      const scrollY = window.scrollY;
+      const body = document.body;
+
+      if (scrollY > 180) {
+        if (!profileCard.classList.contains('compact')) {
+          spacer.style.height = profileCard.offsetHeight + 'px';
+          profileCard.classList.add('compact');
+        }
+      } else {
+        if (profileCard.classList.contains('compact')) {
+          profileCard.classList.remove('compact');
+          spacer.style.height = '0px';
+        }
+      }
+
+      // blend background based on scroll and return when scrolling up
+      const blend = Math.min(scrollY / 500, 1);
+      const startColor = [102, 126, 234];
+      const endColor = [45, 55, 72];
+      const blended = startColor.map((start, i) => Math.round(start + (endColor[i] - start) * blend));
+      body.style.background = `linear-gradient(135deg, rgb(${blended.join(',')}) 0%, #2d3748 100%)`;
+    }
+
+    window.addEventListener('scroll', updateLayoutOnScroll, { passive: true });
+    window.addEventListener('resize', () => {
+      if (profileCard.classList.contains('compact')) {
+        spacer.style.height = profileCard.offsetHeight + 'px';
+      }
+    });
+
+    // ensure initial state
+    updateLayoutOnScroll();
+  </script>
+</body>
+</html>

@@ -1,0 +1,267 @@
+/* ===== BODY STYLES ===== */
+/* Main body container - sets up the page layout and background */
+body {
+  /* Purple gradient background from top-left to bottom-right */
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  /* Modern, clean sans-serif font family with fallbacks */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  /* Flexbox layout to center the card horizontally; allow vertical scrolling */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  /* Full viewport height for vertical centering */
+  min-height: 100vh;
+  /* Remove default margins */
+  margin: 0;
+  /* Add padding for small screens */
+  padding: 20px;
+  transition: background 0.4s ease;
+}
+
+button.menu-btn {
+  position: fixed;
+  top: 2%;
+  left: 2%;
+  z-index: 20;
+  background: rgba(255, 255, 255, 0.92);
+  border: 0.2rem solid #333;
+  border-radius: 0.6rem;
+  padding: 0.6% 0.9%;
+  font-size: clamp(16px, 2.5vw, 22px);
+  cursor: pointer;
+  color: #333;
+  box-shadow: 0 0.4rem 1.2rem rgba(0, 0, 0, 0.18);
+  transition: background 0.18s ease, transform 0.18s ease, border-color 0.18s ease;
+}
+
+button.menu-btn:hover {
+  background: rgba(255, 255, 255, 1);
+  border-color: #555;
+  transform: translateY(-0.2rem);
+}
+
+.page-content {
+  width: 100%;
+  max-width: 90vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: calc(100vh - 4%);
+  justify-content: center;
+}
+
+.scroll-cat {
+  display: none;
+  width: clamp(32px, 6vw, 48px);
+  height: auto;
+  border-radius: 50%;
+  margin-right: 3%;
+  float: left;
+}
+
+.content {
+  margin-top: 30px;
+  color: #f2f2ff;
+  line-height: 1.7;
+}
+
+.content h3 {
+  text-align: left;
+  color: #fff;
+  margin-top: 0;
+}
+
+.content p {
+  max-width: 700px;
+  margin: 0 auto 16px auto;
+}
+
+/* ===== CARD STYLES ===== */
+/* Profile card container with white background and border styling */
+.card {
+  /* White background for the card */
+  background-color: white;
+  /* Dark border around the card */
+  border: 0.2rem solid #333;
+  /* Rounded corners for modern appearance */
+  border-radius: 0.9rem;
+  /* Inner spacing for content */
+  padding: clamp(16px, 4vw, 40px);
+  /* Shadow effect for depth and elevation */
+  box-shadow: 0 0.8rem 1.6rem rgba(0, 0, 0, 0.18);
+  /* Card takes full width on small screens */
+  width: 90%;
+  /* Maximum card width to prevent excessive stretching */
+  max-width: 45%;
+  transition: all 0.3s ease;
+}
+
+.card.compact {
+  position: fixed;
+  top: 2%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 12%);
+  max-width: 85vw;
+  padding: clamp(8px, 2.5vw, 18px);
+  border-radius: 0.9rem;
+  box-shadow: 0 1rem 2.2rem rgba(0, 0, 0, 0.18);
+}
+
+.card.compact .profile-photo {
+  width: clamp(36px, 6vw, 48px);
+  height: auto;
+  margin: 0;
+  float: left;
+}
+
+.card.compact .scroll-cat {
+  display: block;
+}
+
+.card.compact h1,
+.card.compact h2 {
+  text-align: left;
+  margin: 0;
+}
+
+.card.compact h1 {
+  font-size: 20px;
+}
+
+.card.compact h2 {
+  font-size: 14px;
+  color: #555;
+}
+
+.card.compact p,
+.card.compact h3,
+.card.compact ul {
+  display: none;
+}
+
+.card.compact::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+/* ===== PROFILE PHOTO STYLES ===== */
+/* Profile photo image styling */
+.profile-photo {
+  /* Set width to a percentage so it scales with the card */
+  width: clamp(80px, 28%, 160px);
+  height: auto;
+  /* Make image circular */
+  border-radius: 50%;
+  /* Add dark border around photo */
+  border: 4px solid #333;
+  /* Center the image horizontally */
+  display: block;
+  margin: 0 auto 2.5% auto;
+  /* Make image fill the circular boundary */
+  object-fit: cover;
+  /* Add shadow for depth and professional appearance */
+  box-shadow: 0 0.4rem 1.2rem rgba(0, 0, 0, 0.25);
+}
+
+/* ===== HEADING STYLES ===== */
+/* Shared styles for h1 and h2 elements */
+h1, h2 {
+  /* Center align text */
+  text-align: center;
+  /* Minimal vertical spacing */
+  margin: 10px 0;
+  /* Dark text color */
+  color: #333;
+}
+
+/* ===== H1 (PROFILE NAME) STYLES ===== */
+/* Larger heading for the profile name */
+h1 {
+  /* Large font size for prominent display */
+  font-size: 32px;
+  /* Bold font weight for emphasis */
+  font-weight: 700;
+}
+
+/* ===== H2 (JOB TITLE) STYLES ===== */
+/* Secondary heading for job title */
+h2 {
+  /* Smaller font size than h1 */
+  font-size: 18px;
+  /* Lighter gray color for visual hierarchy */
+  color: #666;
+  /* Regular (normal) font weight */
+  font-weight: 400;
+}
+
+/* ===== PARAGRAPH STYLES ===== */
+/* Bio/description text styling */
+p {
+  /* Center align the paragraph text */
+  text-align: center;
+  /* Medium gray color for subtitle-like appearance */
+  color: #555;
+  /* Top margin only, no bottom margin to avoid extra space */
+  margin: 15px 0 0 0;
+}
+
+/* ===== H3 (SECTION HEADING) STYLES ===== */
+/* Tertiary heading for section titles */
+h3 {
+  /* Center align text */
+  text-align: center;
+  /* Add top margin for spacing */
+  margin-top: 25px;
+  /* Minimal bottom margin */
+  margin-bottom: 15px;
+  /* Dark text color for consistency */
+  color: #333;
+  /* Medium font size */
+  font-size: 20px;
+  /* Semi-bold font weight */
+  font-weight: 600;
+}
+
+/* ===== LIST STYLES ===== */
+/* Bulleted list container styling */
+ul {
+  /* Remove bullet points */
+  list-style: none;
+  /* Center the list by removing default left padding and using margin auto */
+  list-style-position: inside;
+  /* Center align the list container */
+  text-align: center;
+  /* Remove default ul margins and padding */
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== LIST ITEM STYLES ===== */
+/* Individual list item styling */
+li {
+  /* Add spacing between list items */
+  margin: 8px 0;
+  /* Medium gray text color */
+  color: #555;
+}
+
+/* ===== LINK STYLES ===== */
+/* Hyperlink styling */
+a {
+  /* Blue color for links */
+  color: #667eea;
+  /* Remove default underline */
+  text-decoration: none;
+  /* Add transition for smooth hover effect */
+  transition: color 0.3s ease;
+}
+
+/* Link hover state */
+a:hover {
+  /* Darker purple on hover */
+  color: #764ba2;
+  /* Underline on hover for better UX */
+  text-decoration: underline;
+}
