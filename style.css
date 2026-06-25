@@ -224,6 +224,17 @@ h3 {
   font-weight: 600;
 }
 
+h4 {
+  /* Center align text */
+  text-align: center;
+  /* Dark text color for consistency */
+  color: #faf8f8;
+  /* Medium font size */
+  font-size: 20px;
+  /* Semi-bold font weight */
+  font-weight: 600;
+}
+
 /* ===== LIST STYLES ===== */
 /* Bulleted list container styling */
 ul {
