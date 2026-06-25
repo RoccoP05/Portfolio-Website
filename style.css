@@ -123,6 +123,31 @@ button.menu-btn:hover {
   color: #ffffff;
 }
 
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.skills-list li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.75rem 1rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.12);
+  color: #f7f7ff;
+  font-weight: 600;
+}
+
+.skill-icon {
+  font-size: 1.2rem;
+  color: #ffffff;
+}
+
 .content:nth-of-type(odd) {
   border-color: rgba(255, 255, 255, 0.14);
 }
