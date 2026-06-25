@@ -17,25 +17,33 @@
   <main class="page-content">
     <div class="card" id="profileCard">
     <!-- Profile photo -->
-    <img src="img/placeholder.png" alt="Rocco's profile photo" class="profile-photo">
-    <img src="img/cat.png" alt="Cat icon" class="scroll-cat">
+    <img src="image.png" alt="Rocco's profile photo" class="profile-photo">
     <!-- Profile name - main heading -->
     <h1>Rocco Palepoi</h1>
     <!-- Job title - secondary heading -->
-    <h2>Web Developer</h2>
+    <h2>University of California Riverside</h2>
     <!-- Brief bio or description -->
-    <p>Excited to create and learn</p>
+    <p>Computer Science</p>
 
-    <!-- Section heading for links -->
-    <h3>My Favorite Websites</h3>
-    <!-- Bulleted list of links -->
-    <ul>
-      <li><a href="https://github.com">GitHub</a></li>
-      <li><a href="https://stackoverflow.com">Stack Overflow</a></li>
-      <li><a href="https://developer.mozilla.org">MDN Web Docs</a></li>
-      <li><a href="https://www.w3schools.com">W3Schools</a></li>
-    </ul>
     </div>
+
+    <section class="content" id="projects">
+      <h4><a href="https://github.com/RoccoP05" target="_blank" rel="noopener noreferrer">Projects</a></h4>
+      <p>Explore a selection of web, UI, and software projects with source code available on GitHub.</p>
+      <div class="project-demos">
+        <ul>
+          <li><a href="https://github.com/RoccoP05/Portfolio-Website" target="_blank" rel="noopener noreferrer">Portfolio Website</a> — this personal portfolio site built with HTML and CSS.</li>
+          <li><a href="https://github.com/RoccoP05/Dynamic-Array" target="_blank" rel="noopener noreferrer">Dynamic Array</a> — a C++ implementation of a dynamic array data structure.</li>
+          <li><a href="https://github.com/RoccoP05/todolist-application" target="_blank" rel="noopener noreferrer">To-do List Application</a> — a task tracker with add/remove and status features.</li>
+          <li><a href="https://github.com/RoccoP05/ucr-eats-reviews" target="_blank" rel="noopener noreferrer">UCR Eats Reviews</a> — a food review site for UCR Eats locations.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="content" id="contact">
+      <h4><a href="https://www.linkedin.com/in/rocco-palepoi-31753937a/" target="_blank" rel="noopener noreferrer">Contact</a></h4>
+      <p>Reach out for collaboration, internships, or freelance work via LinkedIn.</p>
+    </section>
 
     <section class="content">
       <h4>Skills</h4>
@@ -73,7 +81,7 @@
 
       // blend background based on scroll and return when scrolling up
       const blend = Math.min(scrollY / 500, 1);
-      const startColor = [102, 126, 234];
+      const startColor = [208, 212, 216];
       const endColor = [45, 55, 72];
       const blended = startColor.map((start, i) => Math.round(start + (endColor[i] - start) * blend));
       body.style.background = `linear-gradient(135deg, rgb(${blended.join(',')}) 0%, #2d3748 100%)`;

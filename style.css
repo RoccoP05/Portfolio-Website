@@ -1,8 +1,8 @@
 /* ===== BODY STYLES ===== */
 /* Main body container - sets up the page layout and background */
 body {
-  /* Purple gradient background from top-left to bottom-right */
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  /* Gray gradient background from top-left to bottom-right */
+  background: linear-gradient(135deg, #454647fb 0%, #2e2f30 100%);
   /* Modern, clean sans-serif font family with fallbacks */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   /* Flexbox layout to center the card horizontally; allow vertical scrolling */
@@ -63,6 +63,14 @@ button.menu-btn:hover {
   margin-top: 30px;
   color: #f2f2ff;
   line-height: 1.7;
+  width: 100%;
+  max-width: 720px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 1rem;
+  padding: 1.5rem 1.75rem;
+  box-shadow: 0 0.6rem 1.2rem rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(10px);
 }
 
 .content h3 {
@@ -71,9 +79,56 @@ button.menu-btn:hover {
   margin-top: 0;
 }
 
+.content h4 {
+  text-align: left;
+  color: #faf8f8;
+  margin: 0 0 0.8rem 0;
+  font-size: clamp(18px, 2vw, 22px);
+  letter-spacing: 0.02em;
+}
+
 .content p {
   max-width: 700px;
-  margin: 0 auto 16px auto;
+  margin: 0;
+  color: #dde2ff;
+}
+
+.project-demos {
+  margin-top: 20px;
+}
+
+.project-demos h5 {
+  margin: 0 0 0.75rem 0;
+  color: #fff;
+  font-size: clamp(16px, 1.7vw, 18px);
+}
+
+.project-demos ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.project-demos li {
+  margin-bottom: 0.85rem;
+  line-height: 1.6;
+}
+
+.project-demos a {
+  color: #d7e1ff;
+  text-decoration: underline;
+}
+
+.project-demos a:hover {
+  color: #ffffff;
+}
+
+.content:nth-of-type(odd) {
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+.content:nth-of-type(even) {
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 /* ===== CARD STYLES ===== */
@@ -106,6 +161,7 @@ button.menu-btn:hover {
   padding: clamp(8px, 2.5vw, 18px);
   border-radius: 0.9rem;
   box-shadow: 0 1rem 2.2rem rgba(0, 0, 0, 0.18);
+  z-index: 999;
 }
 
 .card.compact .profile-photo {
@@ -242,8 +298,11 @@ ul {
   list-style: none;
   /* Center the list by removing default left padding and using margin auto */
   list-style-position: inside;
-  /* Center align the list container */
-  text-align: center;
+  /* Use flex layout to display links horizontally */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
   /* Remove default ul margins and padding */
   margin: 0;
   padding: 0;
@@ -252,8 +311,8 @@ ul {
 /* ===== LIST ITEM STYLES ===== */
 /* Individual list item styling */
 li {
-  /* Add spacing between list items */
-  margin: 8px 0;
+  /* Remove vertical spacing and keep spacing via flex gap */
+  margin: 0;
   /* Medium gray text color */
   color: #555;
 }
@@ -262,7 +321,7 @@ li {
 /* Hyperlink styling */
 a {
   /* Blue color for links */
-  color: #667eea;
+  color: #faf8f8;
   /* Remove default underline */
   text-decoration: none;
   /* Add transition for smooth hover effect */
